@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Python is awesome!</title>
+        <meta name="author" content="Kees de Keijzer" >
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="stijl.css">
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+    </head>
+    <body>
+        <p class="tab"><span class="tablinks" onclick="openTab(event, 'Artikel')" id="defaultOpen">Artikel</span>  <span class="tablinks" onclick="openTab(event, 'Links')">Links</span>  <span class="tablinks" onclick="openTab(event, 'Notities')">Notities</span></p><p></p>
+        <article id="Artikel" class="tabcontent"><p>Dit is een artikel</p>
+        <h1>het werkt!</h1>
+        <p>Hallo! De HTTP Server werkt!</p>
+        <p>Dit is een pagina met tabs.</p>
+    <p><a href="pagina2.html" target="_blank">pagina2</a> </p>
+    <p><a href="pagina3.html" target="_blank">pagina3</a> </p>
+        </article>
+        <article id="Links" class="tabcontent"><p>hier staan links</p></article>
+    <article id="Notities" class="tabcontent">
+<h4>Notitieruimte</h4>
+<p>De tekst die je hier zet blijft in je browser bewaard voor deze website.</p>
+<textarea style="width:90%; height: 60%;" id="area" placeholder="zet je tekst hier"></textarea>
+
+<button onclick="localStorage.removeItem('area');area.value=''">Tekst wissen</button>
+<script>
+    area.value = localStorage.getItem('area');
+    area.oninput = () => {
+      localStorage.setItem('area', area.value)
+    };
+</script>
+</article><!-- Notities -->
+    <script type="text/javascript" >
+function openTab(evt, tabNaam) {
+  // Variabelen
+  var i, tabcontent, tablinks;
+
+  // Verberg alle class="tabcontent" elementen
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // verwijder bij alle class="tablinks" elementen de class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Toon de huidige tab en voeg een "active" class toe
+  document.getElementById(tabNaam).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Klik op het element met id="defaultOpen"
+document.getElementById("defaultOpen").click();
+
+</script>
+    </body>
+</html>
